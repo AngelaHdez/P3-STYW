@@ -7,32 +7,36 @@ module RockPaperScissors
 
     def initialize(app = nil)
       @app = app
-      @content_type = :html
       @defeat = {'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper'}
-      @throws = @defeat.keys
+      @throws = ''
     end
 
 
     def call(env)
       req = Rack::Request.new(env)
 
-      req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
-
       player_throw = req.GET["choice"]
-      computer_throw = @throws.sample
-      anwser = if !@throws.include?(player_throw)
-        "Choose one of the following:"
-      elsif player_throw == computer_throw
-        "You tied with the computer"
-      elsif computer_throw == @defeat[player_throw]
-        "Nicely done; #{player_throw} beats #{computer_throw}"
+      @throws = @defeat.keys
+      
+
+      if !@throws.include?(player_throw)
+        do_it = "Choose one"
       else
-        "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
+        computer_throw = @throws.sample
+      end
+      anwser = ''
+      anwser= if (player_throw == computer_throw && (player_throw != '' || computer_throw!=''))
+        "tied"
+      elsif computer_throw == @defeat[player_throw]
+        "win"
+      else
+        "loose"
       end
 
       engine = Haml::Engine.new File.open("../views/index.html.haml").read
       res = Rack::Response.new
       res.write engine.render({},
+        :do_it => do_it,
         :anwser => anwser,
         :throws => @throws,
         :computer_throw => computer_throw,
