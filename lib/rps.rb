@@ -33,7 +33,7 @@ module RockPaperScissors
         "loose"
       end
 
-      engine = Haml::Engine.new File.open("../views/index.html.haml").read
+      engine = Haml::Engine.new File.open("views/index.html.haml").read
       res = Rack::Response.new
       res.write engine.render({},
         :do_it => do_it,
