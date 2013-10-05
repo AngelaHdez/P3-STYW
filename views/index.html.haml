@@ -1,0 +1,27 @@
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
+  %body
+    %h1 User choice
+    %ol
+      %a{:href => '?choice=rock'} Rock
+      %a{:href => '?choice=paper'} Paper
+      %a{:href => '?choice=scissors'} Scissors
+
+    - if(player_throw == 'rock')
+      %img{:src => '../public/img/piedra.png', :alt => 'Rock'}
+    - elsif (player_throw == 'scissors')
+      %img{:src => '../public/img/tijeras.png', :alt => 'Scissors'}
+    - elsif (player_throw == 'paper')
+      %img{:src => '../public/img/papel.png', :alt => 'Paper'}
+
+    %h1 Computer Choice
+
+    - if(computer_throw == 'rock')
+      %img{:src => '../public/img/piedra.png', :alt => 'Rock'}
+    - elsif (computer_throw == 'scissors')
+      %img{:src => '../public/img/tijeras.png', :alt => 'Scissors'}
+    - elsif (computer_throw == 'paper')
+      %img{:src => '../public/img/papel.png', :alt => 'Paper'}
+    
+    %h3= anwser

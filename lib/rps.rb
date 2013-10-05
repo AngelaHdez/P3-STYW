@@ -1,0 +1,56 @@
+require 'rack/request'
+require 'rack/response'
+require 'haml'
+
+module RockPaperScissors
+  class App 
+
+    def initialize(app = nil)
+      @app = app
+      @content_type = :html
+      @defeat = {'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper'}
+      @throws = @defeat.keys
+    end
+
+
+    def call(env)
+      req = Rack::Request.new(env)
+
+      req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
+
+      player_throw = req.GET["choice"]
+      computer_throw = @throws.sample
+      anwser = if !@throws.include?(player_throw)
+        "Choose one of the following:"
+      elsif player_throw == computer_throw
+        "You tied with the computer"
+      elsif computer_throw == @defeat[player_throw]
+        "Nicely done; #{player_throw} beats #{computer_throw}"
+      else
+        "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
+      end
+
+      engine = Haml::Engine.new File.open("../views/index.html.haml").read
+      res = Rack::Response.new
+      res.write engine.render({},
+        :anwser => anwser,
+        :throws => @throws,
+        :computer_throw => computer_throw,
+        :player_throw => player_throw)
+
+      res.finish
+    end # call
+  end   # App
+end     # RockPaperScissors
+
+if $0 == __FILE__
+  require 'rack'
+  require 'rack/showexceptions'
+  Rack::Server.start(
+  :app => Rack::ShowExceptions.new(
+    Rack::Lint.new(
+  	 RockPaperScissors::App.new)), 
+  :Port => 9292,
+  :server => 'thin'
+  )
+end
