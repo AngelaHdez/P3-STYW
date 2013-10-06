@@ -21,3 +21,9 @@ desc "run the client with scissors"
 task :scissors do
   sh %q{curl -v 'http://localhost:9292?choice=scissors'}
 end
+
+#acceder a una pagina estatica
+desc "acces to static file"
+task :index do
+  sh %q{curl -v 'http://localhost:9292/views/index.html.haml'}
+end
