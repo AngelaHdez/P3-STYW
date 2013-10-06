@@ -34,11 +34,11 @@
       %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
 
     %br
-    %h1 The Winner is:
+    %h1 Resultado: 
     -if (anwser == 'tied')
       %h2 Empate!
     -elsif (anwser == 'win')
-      %h2 The user win
+      %h2 Ganaste!
       - if(player_throw == 'rock')
         %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins'}
       - elsif (player_throw == 'scissors')
@@ -46,7 +46,7 @@
       - elsif (player_throw == 'paper')
         %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins'}
     -elsif (anwser == 'loose')
-      %h2 You loose!!!
+      %h2 Perdiste!!!
       - if(computer_throw == 'rock')
         %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins'}
       - elsif (computer_throw == 'scissors')
@@ -54,9 +54,7 @@
       - elsif (computer_throw == 'paper')
         %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins'}
       -else
-        %h2 Play the game!!
+        %h2 Empieza a jugar!!
 
-    %a{:href => '/'}Play Again?
-
-    
+    %a{:href => '/'} Juega otra vez   
     

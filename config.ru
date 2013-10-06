@@ -1,6 +1,7 @@
 require './lib/rps.rb'
 require 'rack'
 require 'rack/showexceptions'
+require 'thin'
 
 use Rack::Server.start(
   :app => Rack::ShowExceptions.new(
