@@ -6,7 +6,7 @@ task :server do
 	sh "rackup"
 end
  
-#no funcionan de aqui para abajo
+#Para su uso debemos arrancar el servido en una terminal y hacer rake rock en otra
 desc "run the client with rock"
 task :rock do
   sh %{curl -v 'http://localhost:9292?choice=rock'}
