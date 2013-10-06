@@ -31,6 +31,7 @@ module RockPaperScissors
       else
         computer_throw = @throws.sample
       end
+      
       anwser = ''
       anwser= if (player_throw == computer_throw && (player_throw != '' || computer_throw!=''))
         "tied"

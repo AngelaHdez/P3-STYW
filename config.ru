@@ -7,12 +7,12 @@ use Rack::Server.start(
   :app => Rack::ShowExceptions.new(
     Rack::Lint.new(
   	 RockPaperScissors::App.new)), 
-  :Port => 9292,
+  :Port => 9393,
   :server => 'thin'
   )
 
+use Rack::Static, urls => ["/public"]
 use Rack::Static, urls => ["/css", "js"], :root => "public"
 use Rack::Static, urls => ["/views"]
-use Rack::Static, urls => ["/public"]
 
 run App.new
