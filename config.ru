@@ -13,5 +13,4 @@ use Rack::Server.start(
 
 use Rack::Static, urls => ["/public"]
 use Rack::Static, urls => ["/views"]
-
 run App.new
