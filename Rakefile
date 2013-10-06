@@ -3,7 +3,7 @@ task :default  => :server
 
 desc "run server"
 task :server do	
-	sh "rackup"
+  sh "rackup"
 end
  
 

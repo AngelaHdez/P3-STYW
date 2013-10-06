@@ -3,6 +3,7 @@ require 'rack/request'
 require 'rack/response'
 require 'haml'
 
+
 module RockPaperScissors
   class App 
 

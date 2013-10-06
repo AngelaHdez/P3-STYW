@@ -3,11 +3,10 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
     %link{:href => "public/css/bootstrap.css", :rel => "stylesheet"}
-    %link{:href => "../public/css/bootstrap.min.css", :rel => "stylesheet"}
-    %script{:src => "public/js/bootstrap.js"}
-    %script{:src => "public/js/bootstrap.min.js"}
+    
   %body
-    .row.span4.offset5 
+    %script{:src => "public/js/bootstrap.js"}
+    
     %h1 User choice
     -if (do_it == 'Choose one')
       %h2 Choose one

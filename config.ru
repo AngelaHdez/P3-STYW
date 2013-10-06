@@ -13,5 +13,6 @@ use Rack::Server.start(
 
 use Rack::Static, urls => ["/css", "js"], :root => "public"
 use Rack::Static, urls => ["/views"]
+use Rack::Static, urls => ["/public"]
 
 run App.new
