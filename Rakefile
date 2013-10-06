@@ -6,6 +6,7 @@ task :server do
 	sh "rackup"
 end
  
+ 
 #no funcionan de aqui para abajo
 desc "run the client with rock"
 task :rock do
