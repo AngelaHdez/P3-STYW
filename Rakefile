@@ -6,9 +6,10 @@ task :server do
 	sh "rackup"
 end
  
+#no funcionan de aqui para abajo
 desc "run the client with rock"
 task :rock do
-  sh %q{curl -v 'http://localhost:9292?choice=rock'}
+  sh %{curl -v 'http://localhost:9292?choice=rock'}
 end
 
 desc "run the client with paper"

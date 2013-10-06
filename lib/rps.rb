@@ -11,6 +11,11 @@ module RockPaperScissors
       @throws = ''
     end
 
+    #Acceso al HTML para mostrar los resultados
+    def haml(template, resultado)
+      template_file = File.open(template, 'r')
+      Haml::Engine.new(File.read(template_file)).render({},resultado)
+    end
 
     def call(env)
       req = Rack::Request.new(env)
@@ -33,19 +38,14 @@ module RockPaperScissors
         "loose"
       end
 
-      engine = Haml::Engine.new File.open("views/index.html.haml").read
-      res = Rack::Response.new
-      res.write engine.render({},
-        :do_it => do_it,
+      resultado = 
+        {:do_it => do_it,
         :anwser => anwser,
         :throws => @throws,
         :computer_throw => computer_throw,
-        :player_throw => player_throw)
+        :player_throw => player_throw}
+      res = Rack::Response.new(haml("views/index.html.haml", resultado))
 
-      res.finish
     end # call
   end   # App
 end     # RockPaperScissors
-
-
-
