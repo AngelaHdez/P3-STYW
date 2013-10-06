@@ -1,9 +1,9 @@
 desc "Arrancar la aplicacion"
-task :default  => :server
+task :default => :server
 
 desc "run server"
 task :server do	
-	sh "rackup"
+sh "rackup"
 end
  
 #Para su uso debemos arrancar el servido en una terminal y hacer rake rock en otra
