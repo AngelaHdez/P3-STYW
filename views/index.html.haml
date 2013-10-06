@@ -18,39 +18,39 @@
             %h4 Elige uno para esta jugada
             %ol
               %a{:href => '?choice=rock'}
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img3'}
               %a{:href => '?choice=paper'} 
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img3'}
               %a{:href => '?choice=scissors'}
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img3'}
           -else
-            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
+            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
             %br
-            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
+            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img1'}
             %br
-            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors'} 
+            %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'} 
 
       .row.span8
         #cuerpo2
           .span2
             #imagen
               - if(player_throw == 'rock')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
               - elsif (player_throw == 'scissors')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'}
               - elsif (player_throw == 'paper')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img1'}
           .span3
             #versus
               VS
           .span2
             #imagen
               - if(computer_throw == 'rock')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
               - elsif (computer_throw == 'scissors')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'}
               - elsif (computer_throw == 'paper')
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img1'}
       
         %center
           %br
@@ -59,26 +59,27 @@
           %br
           %br
           %br
-          -if (anwser == 'tied')
-            %h2 Empate!
-          -elsif (anwser == 'win')
-            %h2 Ganaste!
-            - if(player_throw == 'rock')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins', :id=>'sol'}
-            - elsif (player_throw == 'scissors')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras_wins.jpg", :alt => 'Scissors Wins', :id=>'sol'}
-            - elsif (player_throw == 'paper')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins', :id=>'sol'}
-          -elsif (anwser == 'loose')
-            %h2 Perdiste!!!
-            - if(computer_throw == 'rock')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins', :id=>'sol'}
-            - elsif (computer_throw == 'scissors')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras_wins.jpg", :alt => 'Scissors Wins', :id=>'sol'}
-            - elsif (computer_throw == 'paper')
-              %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins', :id=>'sol'}
-            -else
-              %h2 Empieza a jugar!!
+          -if (player_throw != '')
+            -if (anwser == 'tied')
+              %h2 Empate!
+            -elsif (anwser == 'win')
+              %h2 Ganaste!
+              - if(player_throw == 'rock')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins', :id=>'sol'}
+              - elsif (player_throw == 'scissors')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras_wins.jpg", :alt => 'Scissors Wins', :id=>'sol'}
+              - elsif (player_throw == 'paper')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins', :id=>'sol'}
+            -elsif (anwser == 'loose')
+              %h2 Perdiste!!!
+              - if(computer_throw == 'rock')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra_wins.jpg", :alt => 'Rock Wins', :id=>'sol'}
+              - elsif (computer_throw == 'scissors')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras_wins.jpg", :alt => 'Scissors Wins', :id=>'sol'}
+              - elsif (computer_throw == 'paper')
+                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel_wins.jpg", :alt => 'Paper Wins', :id=>'sol'}
+              -else
+                %h2 Empieza a jugar!!
           %br
           %a{:href => '/'} 
             .btn.btn-large.btn-primary
@@ -87,8 +88,15 @@
       .row.span2
         %center
           %h2 Computer 
-          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
+          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
           %br
-          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper'}
+          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img1'}
           %br
-          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors'}   
+          %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'}
+    
+    .row.span12  
+      .footer
+        .navbar.navbar-inner.navbar-inverse.container
+          Angela Hdez
+          %br
+          Fotos obtenidas de google imagenes.

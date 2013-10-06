@@ -20,6 +20,8 @@ module RockPaperScissors
     end
 
     def call(env)
+      player_throw = ''
+      anwser = ''
       req = Rack::Request.new(env)
 
       player_throw = req.GET["choice"]
@@ -31,8 +33,9 @@ module RockPaperScissors
       else
         computer_throw = @throws.sample
       end
+      puts #{player_throw}
+      puts #{computer_throw}
       
-      anwser = ''
       anwser= if (player_throw == computer_throw && (player_throw != '' || computer_throw!=''))
         "tied"
       elsif computer_throw == @defeat[player_throw]
