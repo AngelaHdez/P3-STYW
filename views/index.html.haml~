@@ -55,5 +55,5 @@
         %h2 Empieza a jugar!!
 
     %a{:href => '/'} 
-      %button Juega otra vez   
+    %button Juega otra vez   
     
