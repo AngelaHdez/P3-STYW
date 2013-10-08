@@ -3,11 +3,7 @@ task :default => :server
 
 desc "run server"
 task :server do	
-<<<<<<< HEAD
   sh "rackup"
-=======
-sh "rackup"
->>>>>>> 9bb98c52af5b2ed9ef26439e031e82d7cea43d4e
 end
  
 
@@ -24,7 +20,6 @@ end
 
 desc "run the client with scissors"
 task :scissors do
-<<<<<<< HEAD
   sh %q{curl -v 'http://localhost:8080?choice=scissors'}
 end
 
@@ -33,7 +28,4 @@ desc "acces to static file"
 task :index do
   sh %q{curl -v 'http://localhost:8080/views/index.html.haml'}
 end
-=======
-  sh %q{curl -v 'http://localhost:9292?choice=scissors'}
-end
->>>>>>> 9bb98c52af5b2ed9ef26439e031e82d7cea43d4e
+
