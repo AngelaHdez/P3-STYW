@@ -7,12 +7,9 @@
     -if (do_it == 'Choose one')
       %h2 Choose one
       %ol
-        %a{:href => '?choice=rock'} 
-          %button Rock
-        %a{:href => '?choice=paper'} 
-          %button Paper
-        %a{:href => '?choice=scissors'} 
-          %button Scissors
+        -throws.map do |x| 
+          %a{:href => "?choice=#{x}"} 
+            %button "#{x}"
 
     - if(player_throw == 'rock')
       %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock'}
