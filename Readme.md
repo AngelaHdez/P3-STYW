@@ -1,4 +1,3 @@
-
 <center>![](http://www.chistes21.com/img/chistes/3935_piedra-papel-o-tijera.jpg)</center>
 
 
@@ -30,7 +29,7 @@ Podemos ejecutarlo de dos formas:
 		3.2.2 rake scissors
 		3.2.3 rake paper
 		3.2.4 rake index (sólo en la práctica 4)
-	3.3 Iremos a 'http://localhost:9393/' para poder usar la aplicación
+	3.3 Iremos a 'http://localhost:8080/' para poder usar la aplicación
 
 4.Desarrollador
 ---------------

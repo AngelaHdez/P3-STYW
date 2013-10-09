@@ -5,6 +5,7 @@
     %link{:href => "public/css/bootstrap-responsive.css", :rel => "stylesheet"}
     %link{:href => "public/css/style.css", :rel => "stylesheet"}
   %body
+
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
@@ -17,12 +18,15 @@
           -if (do_it == 'Choose one')
             %h4 Elige uno para esta jugada
             %ol
-              %a{:href => '?choice=rock'}
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img3'}
-              %a{:href => '?choice=paper'} 
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img3'}
-              %a{:href => '?choice=scissors'}
-                %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img3'}
+              -throws.map do |x| 
+                %a{:href => "?choice=#{x}"} 
+                  -if ("#{x}" == 'rock')
+                    %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
+                  -elsif ("#{x}" == 'paper')
+                    %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png", :alt => 'Paper', :id=>'img1'}
+                  -else
+                    %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'} 
+
           -else
             %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
             %br
@@ -100,3 +104,5 @@
           Angela Hdez
           %br
           Fotos obtenidas de google imagenes.
+
+    

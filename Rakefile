@@ -28,4 +28,3 @@ desc "acces to static file"
 task :index do
   sh %q{curl -v 'http://localhost:8080/public/css/style.css'}
 end
-
