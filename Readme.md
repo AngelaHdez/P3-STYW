@@ -35,3 +35,5 @@ Podemos ejecutarlo de dos formas:
 ---------------
 
 	Ángela Hdez D.
+
+<center>![](http://www.portadasfacebook.net/panel/watermark.php?FOTO=portadas/piedra-papel-o-tijera.jpg)</center>
